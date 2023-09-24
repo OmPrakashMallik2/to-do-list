@@ -5,22 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TO DO LIST</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="shortcut icon" href="images/icon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="images/icon.png" type="image/x-icon" />
   </head>
   <body>
     <div class="container">
       <div class="todo-app">
-        <h2>To Do List <img src="images/icon.png" alt=""></h2>
+        <h2>To Do List <img src="images/icon.png" alt="" /></h2>
         <div class="row">
-            <input type="text" id="input-box" placeholder="Add your task">
-            <button>Add</button>
+          <input type="text" id="input-box" placeholder="Add your task" />
+          <button onclick="addtask()">Add</button>
         </div>
         <ul id="list-container">
-            <!-- <li class="checked">Task 1</li>
+          <!-- <li class="checked">Task 1</li>
             <li>Task 2</li>
             <li>Task 3</li> -->
         </ul>
       </div>
     </div>
+
+    <script>
+      const inputBox = document.getElementById("input-box");
+      const listContainer = document.getElementById("list-container");
+
+      function addtask() {
+        if (inputBox.value == "") {
+          alert("You must write something!");
+        } else {
+          let li = document.createElement("li");
+          li.innerHTML = inputBox.value;
+          listContainer.appendChild(li);
+
+          //   clear box
+          inputBox.value = "";
+
+          // add delete task button
+          let span = document.createElement("span");
+          span.innerHTML = "\u00d7";
+          li.appendChild(span);
+        }
+      }
+
+      // task ckecked and delete functionality
+      listContainer.addEventListener(
+        "click",
+        function (e) {
+          if (e.target.tagName === "LI") {
+            e.target.classList.toggle("checked");
+          } else if (e.target.tagName === "SPAN") {
+            e.target.parentElement.remove();
+          }
+        },
+        false
+      );
+    </script>
   </body>
 </html>
