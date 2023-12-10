@@ -27,6 +27,7 @@
   align-items: center;
   margin-bottom: 20px;
 }
+
 .todo-app h2 img {
   width: 30px;
   margin-left: 10px;
@@ -43,7 +44,7 @@
 }
 
 input {
-    width: 100%;
+  width: 100%;
   flex: 1;
   border: none;
   outline: none;
@@ -106,12 +107,13 @@ ul li span {
   border-radius: 50%;
   font-weight: bold;
 }
+
 ul li span:hover {
   background: #edeef0;
 }
 
 
-p{
-    text-align: center;
-    color: grey;
+p {
+  text-align: center;
+  color: grey;
 }
